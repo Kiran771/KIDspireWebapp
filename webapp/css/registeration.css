@@ -1,0 +1,71 @@
+@charset "UTF-8";
+*{
+	margin:0px;
+	padding:0px;
+	text-decoration:none;
+	list-style-type: none;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	outline:none;
+	border:none;
+
+	
+}
+html{
+	font-size:16px;
+}
+body{
+	height:100vh;
+	width:100vw;
+	margin: 0;
+	padding: 0;
+	display: flex; 
+	justify-content:center; 
+	align-items:center;
+	background-image:linear-gradient(to right,rgba(100,60,50,0.5),rgba(50,120,40,0.5));
+}
+
+
+.container{
+	height:37rem;
+	width:35rem;
+	background:white;
+	border-radius:1rem;
+}
+.title{
+	text-align:center;
+	font-size:2rem;
+}
+.formRow{
+	display: flex;
+	justify-content: space-around;
+	
+	
+}
+.formgroup{
+	display: flex;
+	flex-direction:column;
+	justify-content: space-evenly;
+	margin:1rem;
+	
+}
+.formgroup input,option,select{
+	width:200px;
+	height:24px;
+	border-radius:3px;
+	border:2px solid grey;
+	
+}
+.formgroup lable{
+	font-size:1.4rem;
+}
+.button{
+	display:flex;
+	justify-content:center;
+	
+	
+}
+.button button{
+	width:150px;
+	height:50px;
+	font-size:14px;
+}
