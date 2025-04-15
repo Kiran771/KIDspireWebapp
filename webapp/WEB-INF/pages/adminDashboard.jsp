@@ -22,15 +22,15 @@ href="${pageContext.request.contextPath }/css/adminDashboard.css">
 			</li>
 			<li>
 				<a href="#">
-					<i class="fa-regular fa-message"></i>
-					<span class="text">Message</span>	
+					<i class='bx bxs-baby-carriage' ></i>
+					<span class="text">Babysitter</span>	
 				</a>
 			</li>		
 		</ul>
-		<ul class="side-menu">
+		<ul class="side-menu bottom">
 			<li>
 				<a href="#">
-					<i class='bx bxs-bell' ></i>
+					<i class='bx bx-cog'></i>
 					<span class="text">Settings</span>	
 				</a>
 			</li>

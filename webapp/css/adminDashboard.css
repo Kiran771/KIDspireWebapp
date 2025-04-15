@@ -44,7 +44,7 @@ header{
 
 Section .logo{
 	font-size:2rem;
-	color:rgb(100, 148, 156);
+	color:rgb(134, 184, 186);
 	font-weight:bolder;
 	display:flex;
 	align-items:center;
@@ -55,9 +55,14 @@ Section .logo{
 Section .logo span{
 	color:black;
 }
-#sidebar .side-menu{
+#sidebar .side-menu.top{
 	width:100%;
 	margin-top:3rem;
+	
+}
+#sidebar .side-menu.bottom{
+	width:100%;
+	margin-top:31rem;
 	
 }
 
@@ -73,12 +78,12 @@ Section .logo span{
 #sidebar .side-menu li.active{
 	background:rgb(236, 237, 230);
 	position:relative;
-	color:rgb(100, 148, 156);
+	color:rgb(134, 184, 186);
 	
 	
 }
  #sidebar .side-menu li.active a{
-	color:rgb(100, 148, 156);
+	color:rgb(134, 184, 186);
 } 
 
 #sidebar .side-menu li.active::before{
@@ -121,7 +126,7 @@ Section .logo span{
 }
 
 #sidebar .side-menu.top li a:hover{
-	color:rgb(100, 148, 156);
+	color:rgb(134, 184, 186);
 }
 #sidebar .side-menu li a i{
 	display:flex;
@@ -181,7 +186,7 @@ Section .logo span{
 	justify-content:center;
 	align-items:center;
 	font-size:1rem;
-	background:rgb(100, 148, 156);
+	background:rgb(134, 184, 186);
 	border-radius:0 1.5rem 1.5rem 0;
 	cursor:pointer;
 	

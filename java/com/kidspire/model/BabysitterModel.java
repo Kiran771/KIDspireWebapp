@@ -10,7 +10,7 @@ public class BabysitterModel {
 	private String gender;
 	private int contactNumber;
 	private String status;
-	public BabysitterModel(int babysitterId,String firstName,String lastName, int experience, int age, String gender,String status) {
+	public BabysitterModel(int babysitterId,String firstName,String lastName, int experience, int age, String gender,int contactNumber,String status) {
 		super();
 		this.babysitterId=babysitterId;
 		this.firstName = firstName;
@@ -18,6 +18,7 @@ public class BabysitterModel {
 		this.experience = experience;
 		this.age = age;
 		this.gender = gender;
+		this.contactNumber=contactNumber;
 		this.status=status;
 		
 	}
@@ -59,6 +60,12 @@ public class BabysitterModel {
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	public int getContactNumber() {
+		return contactNumber;
+	}
+	public void setStatus(int contactNumber) {
+		this.contactNumber=contactNumber;
 	}
 	public String getStatus() {
 		return status;

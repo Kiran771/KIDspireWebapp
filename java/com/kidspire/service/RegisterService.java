@@ -11,9 +11,9 @@ public class RegisterService {
 	
 	public RegisterService(){
 		try {
-			this.dbconn=DbConfig.getDbConnection();
+			this.dbconn =DbConfig.getDbConnection();
 			
-		}catch(SQLException|ClassNotFound ex){
+		}catch(SQLException|ClassNotFoundException ex){
 			hasConnectionError = true;
 			System.err.println("Database connection error:"+ ex.getMessage());
 			ex.printStackTrace();
