@@ -21,65 +21,116 @@ body{
 	display: flex; 
 	justify-content:center; 
 	align-items:center;
-	background-image:linear-gradient(to right,rgba(235, 178, 185,0.5),rgba(252, 244, 194,0.5));
+	background:rgba(232, 227, 231,0.5);
+}
+.registrationContainer{
+	width:82rem;
+	height:45rem;
+	display:flex;
+	
+	
+}
+.registrationDesignSpc{
+	position: relative;
+	width:35rem;
+	height:45rem;
+	border-top-left-radius:2rem;
+	border-bottom-left-radius:2rem;
+	
 }
 
-.container{
-	height:55rem;
-	width:40rem;
-	background:white;
-	border-radius:1rem;
+.registrationDesignSpc img{
+	border-top-left-radius:2rem;
+	border-bottom-left-radius:2rem;
 }
-.form-image{
-	width: 100%;
-    height:20rem;
-    object-fit: cover;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+.registrationDesignSpc h1{
+	position:absolute;
+	
+  	top: 15%;
+  	left: 50%;
+	transform: translateX(-50%);
+	color: white;
+	font-size: 2rem;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+.registrationDesignSpc button{
+  position:absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1;
 	
 }
-.title{
+
+.fieldSpace{
+	width:57rem;
+	height:45rem;
+	background:white;
+	border-top-right-radius:2rem;
+	border-bottom-right-radius:2rem;
+	
+}
+.fieldSpace h1{
+	font-weight:300;
 	text-align:center;
-	font-size:1.7rem;
 	margin-top:1rem;
 	margin-bottom:1rem;
-}
-.formRow{
-	display: flex;
-	justify-content: space-around;
-	
 	
 }
-.formgroup{
-	display: flex;
+
+.rowGroup{
+	display:flex;
+	gap:16.3rem;
+	margin-left:2.5rem;
+	line-height:4rem;
+	
+}
+.columnGroup{
+	display:flex;
 	flex-direction:column;
-	justify-content: space-evenly;
-	margin:1rem;
 	
 }
-.formgroup input,option,select{
-	width:200px;
-	height:24px;
-	border-radius:3px;
-	border:2px solid grey;
-	
+.columnGroup input,.columnGroup select{
+	width:15rem;
+	height:2rem;
+	border:.1rem solid #e5e7eb;
+	border-radius:.5rem;
 }
-.formgroup lable{
-	font-size:1.4rem;
-}
+
 .button{
 	display:flex;
 	justify-content:center;
 	
-	
 }
+
 .button button{
-	margin-top:2rem;
-	width:150px;
-	height:50px;
-	font-size:14px;
+	margin-top:3.7rem;
+	width:13rem;
+	height:3.5rem;
+	font-size:1rem;
 	border-radius:0.6rem;
-	background-color:rgba(235, 178, 185,0.5);
+	background-color:rgb(232, 227, 231);
 	color:black;
+	cursor: pointer;
+}
+.errorMessage{
+	color:red;
+	font-size:.7rem;
+	width:15.3rem;
+	height:1.6rem;
+	line-height:.8rem;
+	margin-top:.3rem
+}
+.invalidError{
+	color:red;
+	text-align:center;
+	
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,66 +10,98 @@
 href="${pageContext.request.contextPath }/css/registration.css">
 </head>
 <body>
-	<div class="container">
-		<img src="${pageContext.request.contextPath}/resources/babysitters.JPG " class="form-image">
-		<h1 class="title">Join Our Babysitting Team!</h1>
-		<form action="RegisterController"  method="post">
-			<div class="formRow">
-				<div class="formgroup">
-					<label for="firstname">First name</label>
-					<input type="text" id="firstname" name="firstname" required>
-				</div>
-				<div class="formgroup">
-					<label for="LastName">Last name</label>
-					<input type="text" id="lastname" name="lastname" required>
-				</div>
-			</div>
-			<div class="formRow">
-				<div class="formgroup">
-					<label for="age">Age</label>
-					<input type="number" id="age" name="age" required>
-				</div>
-				<div class="formgroup">
-					<label for="gender">Gender</label>
-					<select id="gender" name="gender">
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-					</select>
-				</div>
-			</div>
-			<div class="formRow">
-				<div class="formgroup">
-					<label for="experience">Experience</label>
-					<input type="number" id="experience" name="experience" required>
-					
-				</div>
-				<div class="formgroup">
-					<label for="Contactnumber">Contact number</label>
-					<input type="number" id="Contactnumber" name="Contactnumber" required>
-				</div>
-				
-			</div>
-			<div class="formRow">
-				<div class="formgroup">
-					<label for="Address">Address</label>
-					<input type="text" id="Address" name="Address" required>
-				</div>
-				<div class="formgroup">
-					<label for="Status">Status</label>
-					<select id="status" name="status">
-						<option value="Availabel">Available</option>
-						<option value="Unavailable">Unavailable</option>
-					</select>
-			</div>
-		  </div>
+	<div class="registrationContainer">
+		<div class="registrationDesignSpc">
 			
+			<img src="${pageContext.request.contextPath}/resources/registrationImg.jpg">
+			<h1>Already have an account?</h1>
+			<a href="${ pageContext.request.contextPath }/loginController"><button>Login now</button></a>
+			
+			
+		</div>
+		<div class="fieldSpace">
+			
+			<h1>Registration</h1>
+			<c:if test= "${not empty error}">
+				<p class="invalidError">${error}</p>
+			</c:if>
+			<form action="${pageContext.request.contextPath}/registrationController" method="post">
+			<div class=rowGroup>
+				<div class=columnGroup>
+					<label for="username"> Username</label>
+					<input type="text" id="username" name="username" value="${username}"required>
+					<c:if test="${not empty usernameError}">
+					 	<p class="errorMessage">${usernameError}</p>
+					</c:if>
+				</div>
+				<div class=columnGroup>
+					<label for="firstname">First Name</label>
+					<input type="text" id="firstName" name="firstName" value="${firstName}" required>
+					<c:if test="${not empty firstNameError}">
+					 	<p class="errorMessage">${firstNameError}</p>
+					</c:if>
+				
+				</div>
+			</div>
+			<div class=rowGroup>
+				<div class=columnGroup>
+					<label for="lastName">Last Name</label>
+					<input type="text" id="lastName" name="lastName" value="${lastName}"required>
+					<c:if test="${not empty lastNameError}">
+					 	<p class="errorMessage">${lastNameError}</p>
+					</c:if>
+				</div>
+				<div class=columnGroup>
+					<label for="dob">Date of birth</label>
+					<input type="date" id="dob" name="birthdate" value="${birthdate}"required>
+					<c:if test="${not empty birthdateError}">
+					 	<p class="errorMessage">${birthdateError}</p>
+					</c:if>
+				
+				</div>
+			</div>
+			
+			<div class=rowGroup>
+				<div class=columnGroup>
+					<label for="contactNumber">Contact Number</label>
+					<input type="text" id="contactNo" name="contactNumber" value="${contactNumber}" required>
+					<c:if test="${not empty contactNumberError}">
+					 	<p class="errorMessage">${contactNumberError}</p>
+					</c:if>
+				</div>
+				<div class=columnGroup>
+					<label for="email">Email</label>
+					<input type="text" id="email" name="email" value="${email}"required>
+					<c:if test="${not empty emailError}">
+					 	<p class="errorMessage">${emailError}</p>
+					</c:if>
+				
+				</div>
+			</div>
+			<div class=rowGroup>
+				<div class=columnGroup>
+					<label for="password">Password</label>
+					<input type="password" id="pw" name="password" value="${password}" required>
+					<c:if test="${not empty passwordError}">
+					 	<p class="errorMessage">${passwordError}</p>
+					</c:if>
+				
+				</div>
+				<div class=columnGroup>
+					<label for="confimPassword">Confirm Password</label>
+					<input type="password" id="rePw" name="confirmPassword" value="${confirmPassword}" required>
+					<c:if test="${not empty confirmPasswordError}">
+					 	<p class="errorMessage">${confirmPasswordError}</p>
+					</c:if>
+				</div>
+			</div>
 			<div class="button">
 				<button type="submit">Register</button>
 			</div>
-			
-			
-		</form>
+			</form>
+		</div>
 	</div>
+	
 
 </body>
 </html>

@@ -1,0 +1,139 @@
+@charset "UTF-8";
+*{
+	margin:0px;
+	padding:0px;
+	text-decoration:none;
+	list-style-type: none;
+	outline:none;
+	border:none;
+	color:none;
+}
+html{
+	font-size:19px;
+}
+
+.header{
+	display:flex;
+	align-items:center;
+	justify-content:space-evenly;
+	width:100%;
+	height:5rem;
+	background:white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	position:sticky;
+	top:0;
+	z-index:10;
+}
+.header h1{
+	color:rgb(134, 184, 186);
+}
+.header ul{
+	display: flex;
+	gap:2rem;
+	
+}
+.header ul a{
+	color:black
+}
+.header ul a:hover{
+	color:rgb(134, 184, 186);
+}
+.search{
+	display:flex;
+	align-items: center;
+	
+}
+.search form{
+	display:flex;
+}
+
+.search input{
+	flex-grow:1;
+	padding:0 .8rem;
+	height:3rem;
+	background:#eeebeb;
+	border-radius:1.8rem 0 0 1.8rem;
+	font-size:1rem;
+	width:25rem;
+	
+}
+.search button{
+	width:2.5rem;
+	height:3rem;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-size:1rem;
+	background:rgb(134, 184, 186);
+	border-radius:0 1.8rem 1.8rem 0;
+	cursor:pointer;
+}
+.profile{
+	display:flex;
+	cursor:pointer;
+}
+.profile img{
+	border-radius:50%;
+	width:1.8rem;
+	height:1.8rem;
+	background:white;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	object-fit:contain;
+	border:.1rem solid #e5e7eb;
+}
+.subMenuWrap{
+	position:absolute;
+	top:100%;
+	right:5%;
+	width:17rem;
+	margin-top:.3rem;
+	max-height:0rem;
+	overflow:hidden;
+	transition:max-height 0.5s;
+}
+
+.subMenuWrap.openMenu{
+	max-height:21rem;
+}
+
+
+.subMenu{
+	background:white;
+	padding:1.2rem;
+	margin-left:3rem;
+	border:.2rem solid #e5e7eb;
+}
+.userInfo{
+	display:flex;
+	align-items:center;
+}
+.userInfo h2{
+	font-weight:500;
+}
+.userInfo img{
+	border-radius:50%;
+	width:3rem;
+	height:3rem;
+	margin-right:.4rem;
+	border:.1rem solid #e5e7eb;
+}
+.subMenuLink{
+	display:flex;
+	margin:1.2rem 0;
+	color:black;
+	
+}
+
+.text{
+	width:100%;
+	font-size:1rem
+}
+
+.subMenuLink:hover .arrow{
+	transform:translateX(.3rem)
+}
+.subMenuLink:hover .text{
+	font-weight:600;
+}
