@@ -1,11 +1,19 @@
 package com.kidspire.controller;
 
 import jakarta.servlet.ServletException;
+
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.kidspire.model.BabysitterModel;
+import com.kidspire.service.BabysitterManagementService;
+import com.kidspire.service.RegisterService;
 
 /**
  * @author kiransaud 23048603
@@ -20,10 +28,14 @@ urlPatterns = {
 		"/adminDashboard" })
 public class AdminDashboardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private BabysitterManagementService babysitterService;
+	private RegisterService totalUsers;
        
     
     public AdminDashboardController() {
         super();
+        babysitterService = new BabysitterManagementService();
+        totalUsers=new RegisterService();
        
     }
     /**
@@ -35,8 +47,16 @@ public class AdminDashboardController extends HttpServlet {
      */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.getRequestDispatcher("WEB-INF/pages/Admin/adminDashboard.jsp").forward(request, response);
+		try {
+			List<BabysitterModel> babysitters = babysitterService.getAllBabysitters();
+			request.setAttribute("babysitters", babysitters);
+			request.setAttribute("totalBabysitters",babysitters.size());
+			request.setAttribute("totalusers", totalUsers.getTotalUsersExcludingAdmin());
+			request.setAttribute("availabelBabysitters", babysitterService.getAvailableBabysitters());
+			request.getRequestDispatcher("WEB-INF/pages/Admin/adminDashboard.jsp").forward(request, response);
+		}catch(SQLException e) {
+            throw new ServletException("Database error", e);
+		}
 	}
 
 	/**

@@ -13,8 +13,8 @@ href="${pageContext.request.contextPath}/css/headerUser.css">
 	<header class="header">
   	<h1>KIDspire<span style='color:pink'>.</span></h1>
   	<div class="search">
-  	<form action="#">
-		<input type="search" placeholder="Search...">
+  	<form action="${pageContext.request.contextPath}/babysitterController" method="post">
+		<input type="search" name="searchName"placeholder="Search..." value="${param.searchName}">
 		<button type="submit" class="search-btn">
 			<i class="fa-solid fa-magnifying-glass"></i>
 		</button>

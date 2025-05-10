@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,51 +41,54 @@ href="${pageContext.request.contextPath}/css/babysitter.css ">
 	 <div class="titleDesign">
 		<h1>Choose your Babysitter</h1>
 	 </div>
-	 <div class="babysitters">
-		 <div class="profileImg">
-		 	<img src="${pageContext.request.contextPath}/resources/profile1.JPG">
-		 	<h3>Name:Helen Park</h3>
-		 	<h3>Experience:3yrs</h3>
-		 	
-		 </div>
-		 <div class="profileImg">
-		 	<img src="${pageContext.request.contextPath}/resources/profile2.JPG">
-		 	<h3>Name:Ray Fang</h3>
-		 	<h3>Experience:2yrs</h3>
-		 </div>
-		 <div class="profileImg">
-		 	<img src="${pageContext.request.contextPath}/resources/profile3.JPG">
-		 	<h3>Name:Riya Shah</h3>
-		 	<h3>Experience:4yrs</h3>
-		 </div>
-		 <div class="profileImg">
-		 	<img src="${pageContext.request.contextPath}/resources/profile4.jpg">
-		 	<h3>Name:Nadine Sen</h3>
-		 	<h3>Experience:4yrs</h3>
-		 </div>
-	 </div>
-	  <div class="babysitters">
-		 <div class="profileImg">
-		 	<img src="${pageContext.request.contextPath}/resources/profile5.JPG">
-		 	<h3>Name:Joy Kim</h3>
-		 	<h3>Experience:3yrs</h3>
-		 </div>
-		 <div class="profileImg">
-		 	<img src="${pageContext.request.contextPath}/resources/profile6.JPG">
-		 	<h3>Name:Rujin Sun</h3>
-		 	<h3>Experience:2yrs</h3>
-		 </div>
-		 <div class="profileImg">
-		 	<img src="${pageContext.request.contextPath}/resources/profile7.JPG">
-		 	<h3>Name:Karina Rai </h3>
-		 	<h3>Experience:2yrs</h3>
-		 </div>
-		 <div class="profileImg">
-		 	<img src="${pageContext.request.contextPath}/resources/profile8.JPG">
-		 	<h3>Name:Alison Sen</h3>
-		 	<h3>Experience:1yrs</h3>
-		 </div>
-	 </div>
+	 <c:if test="${empty babysitters}">
+        <p class="no-results">No babysitters found for your search.</p>
+    </c:if>
+    <c:if test="${not empty babysitters}">
+		 <c:forEach var="babysitter" items="${babysitters}" varStatus="loop">
+		 <c:if test="${loop.index % 4 == 0}">
+                <c:if test="${loop.index > 0}"></div></c:if>
+                <div class="babysitters">
+           </c:if>
+			  <div class="profileImg">
+                <c:choose>
+                    <c:when test="${babysitter.babysitterId == 1}">
+                        <img src="${pageContext.request.contextPath}/resources/profile1.JPG" alt="Profile 1">
+                    </c:when>
+                    <c:when test="${babysitter.babysitterId == 3}">
+                        <img src="${pageContext.request.contextPath}/resources/profile2.JPG" alt="Profile 2">
+                    </c:when>
+                    <c:when test="${babysitter.babysitterId == 4}">
+                        <img src="${pageContext.request.contextPath}/resources/profile3.JPG" alt="Profile 3">
+                    </c:when>
+                    <c:when test="${babysitter.babysitterId == 5}">
+                        <img src="${pageContext.request.contextPath}/resources/profile4.jpg" alt="Profile 4">
+                    </c:when>
+                     <c:when test="${babysitter.babysitterId == 6}">
+                        <img src="${pageContext.request.contextPath}/resources/profile5.JPG" alt="Profile 1">
+                    </c:when>
+                    <c:when test="${babysitter.babysitterId == 7}">
+                        <img src="${pageContext.request.contextPath}/resources/profile6.JPG" alt="Profile 2">
+                    </c:when>
+                    <c:when test="${babysitter.babysitterId == 8}">
+                        <img src="${pageContext.request.contextPath}/resources/profile7.JPG" alt="Profile 3">
+                    </c:when>
+                    <c:when test="${babysitter.babysitterId == 9}">
+                        <img src="${pageContext.request.contextPath}/resources/profile8.JPG" alt="Profile 4">
+                    </c:when>
+                    <c:otherwise>
+                        <img  src="${pageContext.request.contextPath}/resources/profile9.jpg" alt="Default Profile">
+                    </c:otherwise>
+                    
+                </c:choose>
+                <h3>Name: ${babysitter.name}</h3>
+                <h3>Experience: ${babysitter.experience}</h3>
+             </div>
+            <c:if test="${loop.last}">
+                </div>
+            </c:if>
+        </c:forEach>
+    </c:if>
 	 <div class="offer">
 	 	<h2>🎉 20% OFF In Your First Booking! 🎉</h2>
 	 	<p>Book your first babysitter today and enjoy a special welcome discount.</p>

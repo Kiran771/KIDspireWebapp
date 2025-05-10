@@ -23,6 +23,8 @@ public class SessionUtil {
 	public static void setAttribute(HttpServletRequest request,String key,Object value) {
 		HttpSession session = request.getSession();
         session.setAttribute(key, value);
+        System.out.println("Session attribute set: " + key + " = " + value);
+
 	}
 	
 	 /**
@@ -33,7 +35,7 @@ public class SessionUtil {
      * @return the value associated with the attribute, or null if the session does not exist or the attribute is not found
      */
 	public static Object getAttribute(HttpServletRequest request,String key) {
-		HttpSession session= request.getSession(false);//
+		HttpSession session= request.getSession(false);
 		if(session!=null) {
 			return session.getAttribute(key);
 		}

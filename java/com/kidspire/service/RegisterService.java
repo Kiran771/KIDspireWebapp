@@ -88,5 +88,28 @@ public class RegisterService {
 		}
 		
 		
+		
 	}
+	public int getTotalUsersExcludingAdmin() throws SQLException {
+		if(dbConn==null) {
+			System.out.println("Database connection is not available ");
+			return 0;
+				
+		}
+		String totalUser = "SELECT COUNT(*) AS total_users FROM User WHERE userName != ?";
+		try(PreparedStatement stmt=dbConn.prepareStatement(totalUser)){
+			stmt.setString(1, "admin1");
+			ResultSet result = stmt.executeQuery();
+			 if (result.next()) {
+                 int count = result.getInt("total_users");
+                 return count;
+             }
+			
+		}catch(SQLException e) {
+			System.err.println("SQL Error in getTotalUsersExcludingAdmin: " + e.getMessage());
+		}
+		return 0;
+		
+	}
+	
 }

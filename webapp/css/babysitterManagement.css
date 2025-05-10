@@ -1,2 +1,44 @@
 @charset "UTF-8";
 
+
+.column-group{
+	width:65%;
+	height:38rem;
+	display:flex;
+	margin-left:24rem;
+	padding-top:2rem;
+	flex-direction:column;
+	line-height:1.9;
+	
+}
+
+.column-group input,.column-group select{
+	width:100%;
+	height:2.3rem;
+	border:.1rem solid grey;
+	border-radius:.5rem;
+	font-size:.8rem;
+	
+	
+	
+}
+.form-submit .form-button{
+	margin-top:1.8rem;
+	cursor: pointer;
+    height: 2.7rem; 
+    width: 10rem; 
+    background:rgb(179, 181, 180);
+    color: black;
+    font-size: 1rem;
+    border-radius: 0.2rem;
+    border: none;
+	
+}
+.errorMessage {
+    color: red;
+    font-size: 0.9rem;
+    
+}
+
+
+

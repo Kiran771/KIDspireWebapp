@@ -34,6 +34,17 @@ public class ValidationUtil {
         return name!=null && name.matches("^[a-zA-Z]+$");
     }
     
+    /**
+     * Validates if a string contains only alphabetic  and space characters
+     * 
+     * @param name the string to validate
+     * @return true if the string is non-null and contains only letters, and space
+     */
+    public static boolean isValidName(String name) {
+    	return name!=null && name.matches("^[a-zA-Z\\s]+$");
+    	
+    }
+    
     
     /**
      * Validates if a string starts with a letter and contains only alphanumeric characters.
@@ -62,7 +73,7 @@ public class ValidationUtil {
      * @return true if the email is non-null and matches the standard email pattern, false otherwise
      */
     
-    public static boolean isVaildEmail(String email) {
+    public static boolean isValidEmail(String email) {
         return email!=null && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
     }
     
@@ -107,6 +118,34 @@ public class ValidationUtil {
         }
         LocalDate today = LocalDate.now();
         return Period.between(dob, today).getYears() >= 18;
+    }
+    
+    /**
+     * Checks if the provided age is within the valid range (18 to 35, inclusive).
+     * 
+     * @param age The age to validate, as an integer.
+     * @return true if the age is between 18 and 35 (inclusive), false otherwise.
+     */
+    public static boolean isValidAge(short age) {
+    	return age>=18 && age<=35;
+    }
+    
+    /**
+     * Validates if the provided age input string can be parsed as a valid integer
+     * and falls within the valid age range (18 to 35, inclusive).
+     * 
+     * @param ageTxt The age input as a string.
+     * @return true if the string can be parsed to an integer and the age is valid
+     *  , false if the string is not a valid integer or the age is outside the valid range.
+     */
+    public static boolean validAgeInput(String ageTxt){
+    	
+    	try {
+    		Short age=Short.parseShort(ageTxt);	
+    		return(isValidAge(age));
+    	}catch(NumberFormatException e){
+    		return false;
+    	}
     }
     
     /**

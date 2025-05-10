@@ -25,6 +25,11 @@ public class UserModel {
 	private String password;
 	private String confirmPassword;
 	
+	//default constructor
+	public UserModel() {
+		
+	}
+	
     /**
      * Constructor to initialize all fields including userId
      * 
@@ -38,6 +43,7 @@ public class UserModel {
      * @param password Password for the user account
      * @param confirmPassword Password confirmation
      */
+	
 	
 	public UserModel(int userId, String userName, String firstName, String lastName, LocalDate dob,
 			String contactNumber, String email, String password, String confirmPassword) {
@@ -119,10 +125,18 @@ public class UserModel {
 		this.userName = userName;
 		this.password = password;
 	}
-
 	
+	
+    public UserModel(String userName, String firstName, String lastName, String contactNumber, String email) {
+		super();
+		this.userName = userName;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.contactNumber = contactNumber;
+		this.email = email;
+	}
 
-    /**
+	/**
      * Gets the user's ID
      * @return userId
      */

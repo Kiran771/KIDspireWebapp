@@ -218,7 +218,7 @@ public class RegistrationController extends HttpServlet {
 				
 			}
 				
-			if(!ValidationUtil.isVaildEmail(email)) {
+			if(!ValidationUtil.isValidEmail(email)) {
 				isValid=false;
 				request.setAttribute("emailError","*Must be in the format example@email.com");
 				
@@ -256,7 +256,7 @@ public class RegistrationController extends HttpServlet {
 	private void handleError(HttpServletRequest request, HttpServletResponse response, String message)
 			throws ServletException, IOException {
 		
-		request.setAttribute("error",message);
+		
 		 
 		 request.setAttribute("username", request.getParameter("username"));
 		 request.setAttribute("firstName", request.getParameter("firstName"));

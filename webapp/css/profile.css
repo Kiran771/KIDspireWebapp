@@ -93,7 +93,7 @@ body{
 	
 }
 
-.profileInfo p{
+.heading{
 	padding-left:2.5rem;
 	padding-top:.5rem;
 	
@@ -131,4 +131,13 @@ body{
 	font-size:.8rem;
 	color:white;
 	border-radius:.5rem;
+}
+.errorMessage{
+	font-size:.6rem;
+	color:red;
+	margin-top: .3rem; 
+    margin-left: 0; 
+    margin-right: 0;
+    width: 13rem; 
+    text-align: left;
 }

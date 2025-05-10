@@ -27,7 +27,7 @@ html{
 	max-width:150vw;
 	justify-content:space-around;
 	align-items:center;
-	height:17rem;
+	height:14rem;
 	
 	
 }
@@ -80,17 +80,87 @@ html{
 	background:rgb(246, 233, 247);
 }
 
-#content main .stats{
+#content main .new-info{
 	display:flex;
 	width:100%;
-	height:22rem;
+	background:black;
+	max-width:150vw;
 	align-items:center;
-	gap:3rem;
+	height:17rem;
 }
-#content main .stats .picture{
-	width:32rem;
-	height:20.6rem;
-	background:white;
+#content main .table-space{
+	width:99%;
+	align-items:center;
+	margin-left:1rem;
+}
+#content main .table-space .button{
+	width:25%;
+	height:3rem;
+	display:flex;
+	align-items:center;
+	background:rgb(187, 191, 189);
+	border-radius:.3rem;
+	justify-content:center;
+	margin-bottom:1rem;
+	
+	
+	
+	
+}
+#content main .table-space .button a{
+	color:white;
+}
+
+#content main .table-space .button button{
+	width:12rem;
+	height:2.5rem;
+	font-size:1.2rem;
+	border-radius:.5rem;
+	margin-top:1rem;
+	cursor:pointer;
+	background:rgb(187, 191, 189);
+	margin-left:.2rem;
+	color:white;
+	
+}
+
+#content main .table-space table{
+	width:100%;
+	border-collapse: collapse;
+	background:rgb(179, 199, 189);
+}
+#content main .table-space th{
+	
+	border:.1rem solid rgba(217, 222, 220,0.2);
+	font-weight:400;
+	font-size: 1.2rem;
+	padding:.7rem;
+	text-align:center;
+	
+}
+#content main .table-space td {
+    border: .1rem solid rgba(217, 222, 220,0.2);
+    padding: .5rem;
+    text-align: center;
+    font-size:1.1rem;
+}
+#content main .table-space .btn {
+    display: inline-block;
+    padding: .3rem;
+    margin: 0 .5rem;
+    text-decoration: none;
+    
+}
+#content main .table-space .btn-edit {
+    color: black;
+}
+#content main .table-space .btn-danger {
+	font-size:.9rem;
+    color: red;
+}
+#content main .table-space .btn-danger i{
+	color:none;
+	cursor:pointer;
 }
 
 

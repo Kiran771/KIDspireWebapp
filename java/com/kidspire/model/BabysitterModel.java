@@ -9,13 +9,13 @@ package com.kidspire.model;
 public class BabysitterModel {
 	
 	private int babysitterId;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private short age;
-	private String contactNumber;
-	private String email;
 	private String experience;
+	private String email;
+	private String contactNumber;
 	private String status;
+	
 	
 	
 	 /**
@@ -30,29 +30,55 @@ public class BabysitterModel {
      * Parameterized constructor to initialize a BabysitterModel object with all attributes.
      * 
      * @param babysitterId Unique ID of the babysitter
-     * @param firstName First name of the babysitter
-     * @param lastName Last name of the babysitter
+     * @param name  name of the babysitter
      * @param age Age of the babysitter
      * @param contactNumber Contact number of the babysitter
      * @param email Email address of the babysitter
      * @param experience Experience details of the babysitter
      * @param status Current status of the babysitter i.e. availability check
      */
-	
-	public BabysitterModel(int babysitterId, String firstName, String lastName, Short age, String contactNumber,
-			String email, String experience, String status) {
+	public BabysitterModel(int babysitterId, String name, short age, String experience, String email,
+			String contactNumber, String status) {
 		super();
 		this.babysitterId = babysitterId;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.name = name;
 		this.age = age;
-		this.contactNumber = contactNumber;
-		this.email = email;
 		this.experience = experience;
+		this.email = email;
+		this.contactNumber = contactNumber;
 		this.status = status;
 	}
-
 	
+	/**
+     * Parameterized constructor to initialize a BabysitterModel object with all attributes except id.
+     * 
+     * @param name  name of the babysitter
+     * @param age Age of the babysitter
+     * @param contactNumber Contact number of the babysitter
+     * @param email Email address of the babysitter
+     * @param experience Experience details of the babysitter
+     * @param status Current status of the babysitter i.e. availability check
+     */
+	public BabysitterModel(String name, short age, String experience, String email, String contactNumber,
+			String status) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.experience = experience;
+		this.email = email;
+		this.contactNumber = contactNumber;
+		this.status = status;
+	}
+	
+	
+
+	public BabysitterModel(String name, String experience) {
+		super();
+		this.name = name;
+		this.experience = experience;
+	}
+
+
 	/**
 	 * Returns the babysitter's ID
 	 * @return babysitterId
@@ -70,39 +96,24 @@ public class BabysitterModel {
 	}
 
 	/**
-     * Gets the babysitter's first name
+     * Gets the babysitter's  name
      * @return firstName
      */
 	
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 	
 	/**
-     * Sets the babysitter's first name
-     * @param firstName the first name to set
+     * Sets the babysitter's  name
+     * @param Name the  name to set
      */
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	/**
-     * Gets the babysitter's last name
-     * @return lastName
-     */
 	
-	public String getLastName() {
-		return lastName;
-	}
-
-	/**
-     * Sets the babysitter's last name
-     * @param lastName the last name to set
-     */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 
 	/**
      * Gets the babysitter's age
@@ -170,19 +181,21 @@ public class BabysitterModel {
     }
 
     /**
-     * Gets the babysitter's current status i.e availability status
+     * Gets the babysitter's status 
      * @return status
      */
-    public String getStatus() {
-        return status;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    /**
-     * Sets the babysitter's current status
+	/**
+     * Sets the babysitter's status
      * @param status the status to set
      */
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
+    
+   
 
 }

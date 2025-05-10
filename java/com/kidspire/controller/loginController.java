@@ -65,13 +65,11 @@ public class LoginController extends HttpServlet {
 		if(loginStatus!=null && loginStatus) {
 			
 			SessionUtil.setAttribute(request,"Username",userName);
-			System.out.println("Session created or accessed. Session ID: " + request.getSession().getId());
-		    System.out.println("Session attribute 'Username': " + request.getSession().getAttribute("Username"));
-
+			
 			
 			if(userName.equals("admin1")) {
 				CookiesUtil.addCookie(response,"role","admin", 5*720);
-				System.out.println("Redirecting to dashboard");
+				
 				response.sendRedirect(request.getContextPath() + "/adminDashboard");
 				
 			}else{

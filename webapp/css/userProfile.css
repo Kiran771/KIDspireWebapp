@@ -6,7 +6,7 @@ body {
     width: 100vw;
     overflow-y: auto;
     background-color: rgb(234, 235, 232);
-    min-height: 100vh; 
+    min-height: 105vh; 
     margin: 0; 
 }
 .profile-container {
@@ -81,9 +81,9 @@ body {
 .details-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 2.105rem; 
+    margin-top: 2.1rem; 
     gap: 1.053rem; 
-    height:25.3rem;
+    height:29.3rem;
 }
 
 .change-section {
@@ -92,26 +92,23 @@ body {
     padding: 1.053rem; 
     border-radius: 0.526rem; 
     box-shadow: 0 0.105rem 0.526rem rgba(0, 0, 0, 0.1); 
-    line-height:2.4rem;
+    line-height:2rem;
 }
 
 .change-section h2 {
     font-size: 1.263rem; 
-    margin-bottom: 0.526rem;
     color: #333;
 }
 
 .change-section label {
     display: block;
     font-size: 0.842rem; 
-    margin-bottom: 0.263rem;
     color: #555;
 }
 
 .change-section input {
     width: 75%;
-    padding: 0.421rem; 
-    margin-bottom: 0.526rem; 
+    padding: 0.421rem;  
     border: 0.053rem solid #ccc; 
     border-radius: 0.263rem; 
     font-size: 0.842rem; 
@@ -132,5 +129,11 @@ body {
 }
 
 .save-btn:hover {
-    background-color:rgba(242, 235, 247, 0.5);
+    background-color:red;
+}
+.errorMessage{
+	font-size:.6rem;
+	color:red;
+    width: 13rem; 
+    
 }

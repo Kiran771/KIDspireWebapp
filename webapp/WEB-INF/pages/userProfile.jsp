@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +20,7 @@ href="${pageContext.request.contextPath}/css/userProfile.css">
                 <img src="${pageContext.request.contextPath}/resources/profile.jpg" alt="Profile Picture" style="width: 100%; height: 100%; border-radius: 50%;">
             </div>
             <div class="profile-details">
-                <h1>Riya Shah</h1>
-                <p>riya.shah@gmail.com</p>
+                <h1></h1>
             </div>
             <button class="view-profile-btn">View Profile</button>
         </div>
@@ -43,18 +43,34 @@ href="${pageContext.request.contextPath}/css/userProfile.css">
             </div>
 
             <div class="change-section">
-                <h2>Other Info Changes</h2>
-               
-                    <label for="full-name">Full Name</label>
-                    <input type="text" id="full-name" name="full-name" value="Riya Shah" required>
-                    
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="riya.shah@gmail.com" required>
-                    
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                    
-                    <button type="submit" class="save-btn">Save Changes</button>
+            
+            		<form action="${pageContext.request.contextPath}/userProfile" method="post">
+	               		<h2>User Details</h2>
+	               		<input type="hidden" name="username" value="${username}">
+	                    <label for="full-name">First Name</label>
+	                    <input type="text" id="first-name" name="firstName" value="${firstName!=null?firstName:user.firstName }"  required>
+	                    <c:if test="${not empty errorFname}">
+							<p class="errorMessage">${errorFname}</p>
+						</c:if>
+	                    <label for="full-name">Last Name</label>
+	                    <input type="text" id="last-name" name="lastName" value="${lastName!=null?lastName:user.lastName}" required>
+	                    <c:if test="${not empty errorLname}">
+							<p class="errorMessage">${errorLname}</p>
+						</c:if>
+	                    <label for="email">Email</label>
+	                    <input type="email" id="email" name="email" value="${email!=null? email:user.email }"required>
+	                    <c:if test="${not empty errorEmail}">
+							<p class="errorMessage">${errorEmail}</p>
+						</c:if>
+	                    
+	                    <label for="phone">Phone Number</label>
+	                    <input type="tel" id="phone" name="phone" value="${phone!=null?phone:user.contactNumber }" required>
+	                    <c:if test="${not empty errorContact}">
+							<p class="errorMessage">${errorContact}</p>
+						</c:if>
+						
+	                    <button type="submit" class="save-btn">Save Changes</button>
+                    </form>
                
             </div>
         </div>
