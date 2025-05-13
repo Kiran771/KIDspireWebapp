@@ -10,16 +10,21 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.kidspire.service.BabysitterManagementService;
 import com.kidspire.model.BabysitterModel;
+import com.kidspire.service.BabysitterManagementService;
+
 
 
 /**
  * @author kiransaud 23048603
- * BabysitterController handles GET and POST requests for the babysitter page.
- * It forwards the request to "babysitter.jsp" for displaying the page content.
- * Mapped to "/babysitterController".
+ * BabysitterController handles HTTP requests related to the Babysitter view page.
+ *
+ * On GET requests, it retrieves and displays the list of all babysitters.
+ * On POST requests, it handles babysitter search by name and displays the filtered results.
+ *
+ * The controller forwards the request to "babysitter.jsp" located under WEB-INF/pages.
  * 
+ * Mapped to "/babysitterController".
  */
 
 
@@ -35,11 +40,16 @@ public class BabysitterController extends HttpServlet {
        
     }
     /**
-     * Handles GET requests to the babysitter page
-     * Forwards the request to "WEB-INF/pages/babysitter.jsp" for loading
+     * Handles GET requests to the babysitter page.
+     * 
+     * Retrieves the full list of babysitters from the service layer,
+     * sets it as a request attribute, and forwards the request to 
+     * "WEB-INF/pages/babysitter.jsp" for rendering.
      *
      * @param request  the HttpServletRequest object
      * @param response the HttpServletResponse object
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException      if an I/O error occurs
      */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,12 +66,18 @@ public class BabysitterController extends HttpServlet {
 	}
 
 	/**
-     * Handles POST requests by forwarding them to the doGet method.
-     * This ensures that both GET and POST requests behave the same.
-     *
-     * @param request  the HttpServletRequest object
-     * @param response the HttpServletResponse object
-     */
+	 * Handles POST requests to the babysitter page.
+	 * 
+	 * Expects a "searchName" parameter from the request, performs a search
+	 * for babysitters matching the given name using the service layer,
+	 * sets the resulting list as a request attribute, and forwards the 
+	 * request to "WEB-INF/pages/babysitter.jsp" to display the results.
+	 *
+	 * @param request  the HttpServletRequest object
+	 * @param response the HttpServletResponse object
+	 * @throws ServletException if a servlet-specific error occurs
+	 * @throws IOException      if an I/O error occurs
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {

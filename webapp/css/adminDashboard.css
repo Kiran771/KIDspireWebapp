@@ -1,168 +1,171 @@
 @charset "UTF-8";
 
-*{
-	margin:0px;
-	padding:0px;
-	text-decoration:none;
+* {
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
 	list-style-type: none;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	outline:none;
-	border:none;
-}
-html{
-	font-size:20px;
-}
-#content main{
-	width:100%;
-	padding:3rem 1rem;
-	font-size:1.3rem;
-	box-sizing:border-box;
-}
-#content main h1{
-	padding-left:2.6rem;
-}
-#content main .box-info{
-	display:flex;
-	width:100%;
-	max-width:150vw;
-	justify-content:space-around;
-	align-items:center;
-	height:14rem;
-	
-	
-}
-#content main .box-info .info{
-	width:20rem;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	height:10rem;
-	background:rgb(247, 247, 245);
-	border-radius:1.5rem;
-	box-shadow:0.25rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
-	
-}
-#content main .box-info .info .data{
-	width:15rem;
-	height:10rem;
-	display:flex;
-	justify-content:center;
-	padding-left:1rem;
-	flex-direction:column;
+	outline: none;
+	border: none;
 }
 
-#content main .box-info .info .data h1{
-	text-align:center;
-	padding:0;
-	margin:0;
+html {
+	font-size: 20px;
 }
 
-#content main .box-info .info .data h4{
-	font-size:1.2rem;
+#content main {
+	width: 100%;
+	padding: 3rem 1rem;
+	font-size: 1.3rem;
+	box-sizing: border-box;
 }
 
-#content main .box-info .info i{
-	width:5rem;
-	height:5rem;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	border-radius:1rem;
-	margin-left:1rem;
-}
-#content main .box-info .info .icon-registered{
-	background:rgb(210, 245, 206);
-}
-#content main .box-info .info .icon-user{
-	background:rgb(202, 243, 252);
-}
-#content main .box-info .info .fa-solid{
-	background:rgb(246, 233, 247);
+#content main h1 {
+	padding-left: 2.6rem;
 }
 
-#content main .new-info{
-	display:flex;
-	width:100%;
-	background:black;
-	max-width:150vw;
-	align-items:center;
-	height:17rem;
-}
-#content main .table-space{
-	width:99%;
-	align-items:center;
-	margin-left:1rem;
-}
-#content main .table-space .button{
-	width:25%;
-	height:3rem;
-	display:flex;
-	align-items:center;
-	background:rgb(187, 191, 189);
-	border-radius:.3rem;
-	justify-content:center;
-	margin-bottom:1rem;
-	
-	
-	
-	
-}
-#content main .table-space .button a{
-	color:white;
+#content main .box-info {
+	display: flex;
+	width: 100%;
+	max-width: 150vw;
+	justify-content: space-around;
+	align-items: center;
+	height: 14rem;
 }
 
-#content main .table-space .button button{
-	width:12rem;
-	height:2.5rem;
-	font-size:1.2rem;
-	border-radius:.5rem;
-	margin-top:1rem;
-	cursor:pointer;
-	background:rgb(187, 191, 189);
-	margin-left:.2rem;
-	color:white;
-	
+#content main .box-info .info {
+	width: 20rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10rem;
+	background: rgb(247, 247, 245);
+	border-radius: 1.5rem;
+	box-shadow: 0.25rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-#content main .table-space table{
-	width:100%;
-	border-collapse: collapse;
-	background:rgb(179, 199, 189);
+#content main .box-info .info .data {
+	width: 15rem;
+	height: 10rem;
+	display: flex;
+	justify-content: center;
+	padding-left: 1rem;
+	flex-direction: column;
 }
-#content main .table-space th{
-	
-	border:.1rem solid rgba(217, 222, 220,0.2);
-	font-weight:400;
+
+#content main .box-info .info .data h1 {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+#content main .box-info .info .data h4 {
 	font-size: 1.2rem;
-	padding:.7rem;
-	text-align:center;
-	
 }
+
+#content main .box-info .info i {
+	width: 5rem;
+	height: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 1rem;
+	margin-left: 1rem;
+}
+
+#content main .box-info .info .icon-registered {
+	background: rgb(210, 245, 206);
+}
+
+#content main .box-info .info .icon-user {
+	background: rgb(202, 243, 252);
+}
+
+#content main .box-info .info .fa-solid {
+	background: rgb(246, 233, 247);
+}
+
+#content main .new-info {
+	display: flex;
+	width: 100%;
+	background: black;
+	max-width: 150vw;
+	align-items: center;
+	height: 17rem;
+}
+
+#content main .table-space {
+	width: 99%;
+	align-items: center;
+	margin-left: 1rem;
+}
+
+#content main .table-space .button {
+	width: 25%;
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	background: rgb(187, 191, 189);
+	border-radius: .3rem;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+
+#content main .table-space .button a {
+	color: white;
+}
+
+#content main .table-space .button button {
+	width: 12rem;
+	height: 2.5rem;
+	font-size: 1.2rem;
+	border-radius: .5rem;
+	margin-top: 1rem;
+	cursor: pointer;
+	background: rgb(187, 191, 189);
+	margin-left: .2rem;
+	color: white;
+}
+
+#content main .table-space table {
+	width: 100%;
+	border-collapse: collapse;
+	background: rgb(207, 209, 208);
+}
+
+#content main .table-space th {
+	border: .1rem solid rgba(217, 222, 220, 0.2);
+	font-weight: 400;
+	font-size: 1.2rem;
+	padding: .7rem;
+	text-align: center;
+}
+
 #content main .table-space td {
-    border: .1rem solid rgba(217, 222, 220,0.2);
-    padding: .5rem;
-    text-align: center;
-    font-size:1.1rem;
+	border: .1rem solid rgba(217, 222, 220, 0.2);
+	padding: .5rem;
+	text-align: center;
+	font-size: 1.1rem;
 }
+
 #content main .table-space .btn {
-    display: inline-block;
-    padding: .3rem;
-    margin: 0 .5rem;
-    text-decoration: none;
-    
+	display: inline-block;
+	padding: .3rem;
+	margin: 0 .5rem;
+	text-decoration: none;
 }
+
 #content main .table-space .btn-edit {
-    color: black;
+	color: black;
 }
+
 #content main .table-space .btn-danger {
-	font-size:.9rem;
-    color: red;
-}
-#content main .table-space .btn-danger i{
-	color:none;
-	cursor:pointer;
+	font-size: .9rem;
+	color: red;
 }
 
-
-
-	
+#content main .table-space .btn-danger i {
+	color: none;
+	cursor: pointer;
+}

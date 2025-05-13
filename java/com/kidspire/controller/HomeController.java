@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
+/**H
  * @author kiransaud 23048603
  * HomeController handles requests for the user home page
  * It forwards both GET and POST requests to "home.jsp"

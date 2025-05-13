@@ -8,8 +8,19 @@ import com.kidspire.config.DbConfig;
 import com.kidspire.model.UserModel;
 
 
+/**
+ * The ProfileService class provides methods for retrieving and updating user profile details.
+ * It interacts with the database to fetch and modify user information based on their username
+ * It supports fetching a user's details by username and updating the user's details
+ */
+
 public class ProfileService {
 	private Connection dbConn;
+	
+	/**
+     * Initializes a new instance of ProfileService and establishes a database connection.
+     * Throws an exception if the connection cannot be established.
+     */
 	
 	public ProfileService() {
 		try {
@@ -23,6 +34,14 @@ public class ProfileService {
 		}
        
     }
+	
+	/**
+     * Retrieves a user's profile details based on their username.
+     * 
+     * @param username The username of the user whose profile is to be fetched.
+     * @return A UserModel object containing the user's details, or null if no user is found.
+     * @throws SQLException If an SQL error occurs while querying the database.
+     */
 	
 	  public UserModel getUserByUsername(String username) throws SQLException {
 	        if (dbConn == null) {
@@ -46,6 +65,12 @@ public class ProfileService {
 	        return null;
 	    }
 	  
+	  /**
+	   * Updates the details of a user in the database.
+	   * 
+	   * @param user A UserModel object containing the updated user details.
+	   * @throws SQLException If an SQL error occurs during the update process or if no user is found with the specified username.
+	   */
 	  public void updateUserDetails(UserModel user)throws SQLException {
 		  if (dbConn == null) {
 	            throw new SQLException("Database connection is not available");

@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import com.kidspire.util.ValidationUtil;
 import com.kidspire.model.UserModel;
@@ -38,7 +39,16 @@ public class RegistrationController extends HttpServlet {
         this.registerService=new RegisterService();
         
     }
-
+    /**
+     * Handles HTTP GET requests for the registration page.
+     * This method forwards the request to the registration.jsp page located in WEB-INF/pages.
+     * The JSP page is not directly accessible by the client to improve security.
+     *
+     * @param request  The HttpServletRequest object that contains the request the client made.
+     * @param response The HttpServletResponse object that contains the response the servlet returns.
+     * @throws ServletException if the request could not be handled.
+     * @throws IOException if an input or output error is detected.
+     */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -65,9 +75,14 @@ public class RegistrationController extends HttpServlet {
 			return;
 		}
 		
+		
 		String password=request.getParameter("password");
 		String userName=request.getParameter("username");
+		String contactNumber=request.getParameter("contactNumber");
+		String email=request.getParameter("email");
 		String encryptedPassword = PasswordUtil.encrypt(userName, password);
+		
+		
 		
 		UserModel userModel = new UserModel(
 	            request.getParameter("username"),
@@ -79,6 +94,32 @@ public class RegistrationController extends HttpServlet {
 	            encryptedPassword
 	            
 	        );
+		
+		//check duplicate username,contact number and set appropriate message when duplicate username or number is found
+		try {
+			if(registerService.isDuplicateUser(userName)) {
+				request.setAttribute("usernameError","*Username already exist." );
+				handleError(request, response, "Please correct the highlighted errors.");
+				return;
+			}
+			if(registerService.isDuplicateContact(contactNumber)) {
+				request.setAttribute("contactNumberError","*Number already exist." );
+				handleError(request, response, "Please correct the highlighted errors.");
+				return;
+			}
+			if(registerService.isDuplicateEmail(email)) {
+				request.setAttribute("emailError","*Email already exist." );
+				handleError(request, response, "Please correct the highlighted errors.");
+				return;
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			return;
+		}
 
 		Boolean isAdded=registerService.addUser(userModel);
 		if (isAdded == null) {
@@ -257,7 +298,7 @@ public class RegistrationController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		
-		 
+		 request.setAttribute("error", message);
 		 request.setAttribute("username", request.getParameter("username"));
 		 request.setAttribute("firstName", request.getParameter("firstName"));
 		 request.setAttribute("lastName", request.getParameter("lastName"));

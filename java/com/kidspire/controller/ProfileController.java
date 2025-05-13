@@ -16,8 +16,15 @@ import com.kidspire.util.ValidationUtil;
 
 /**
  * @author kiransaud 23048603
- * ProfileController handles loading the profile page
- * It forwards GET and POST requests to the profile view
+ * 
+ * ProfileController is a servlet that handles both GET and POST requests related to the user's profile.
+ * On a GET request, it checks if the user is logged in, retrieves the user's profile data from the database,
+ * and forwards it to the profile view (JSP page) for display.
+ * On a POST request, it validates the submitted profile data (first name, last name, contact number, email),
+ * updates the user details in the database if valid, or redisplays the form with validation errors.
+ * 
+ * This controller ensures that only authenticated users can view or update their profile details.
+ * It interacts with ProfileService and uses ValidationUtil for input validation.
  * 
  */
 
@@ -27,13 +34,25 @@ public class ProfileController extends HttpServlet {
 	private ProfileService profileService;
 
        
-   
+	/**
+	 * Constructor initializes ProfileService instance
+	 */
     public ProfileController() {
         super();
         profileService=new ProfileService();
         
     }
-
+    
+    /**
+	 * Handles GET requests to display the user's profile page.
+	 * Checks if the user session is valid, retrieves user data from the database,
+	 * and forwards it to the profile JSP page.
+	 *
+	 * @param request  HTTP request object
+	 * @param response HTTP response object
+	 * @throws ServletException
+	 * @throws IOException
+	 */
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
@@ -62,9 +81,16 @@ public class ProfileController extends HttpServlet {
 		
 	}
 	
-
-	
-
+	/**
+	 * Handles POST requests for updating the user's profile.
+	 * Validates input fields, updates the database if valid,
+	 * or redisplays the form with error messages.
+	 *
+	 * @param request  HTTP request containing updated profile data
+	 * @param response HTTP response object
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
@@ -98,16 +124,16 @@ public class ProfileController extends HttpServlet {
             e.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/loginController");
 			
-		}
-		
-		
-		
-		
-		
-		
-		
+		}	
 	}
 	
+	/**
+	 * Validates input values for first name, last name, contact number, and email.
+	 * Adds error messages to request attributes if validation fails.
+	 *
+	 * @param request HTTP request containing form input values
+	 * @return true if all inputs are valid; false otherwise
+	 */
 	private boolean validateInputDetails(HttpServletRequest request) {
 		boolean isValid=true;
 		
@@ -141,7 +167,17 @@ public class ProfileController extends HttpServlet {
 		return isValid;
 	
 	}
-	private void handleError(HttpServletRequest request, HttpServletResponse response)
+	
+	/**
+	 * Handles redisplaying the form with pre-filled input values and error messages
+	 * when validation fails.
+	 *
+	 * @param request  HTTP request containing previous inputs
+	 * @param response HTTP response to forward back to profile.jsp
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	 private void handleError(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		 

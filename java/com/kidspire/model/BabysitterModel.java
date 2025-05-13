@@ -8,12 +8,25 @@ package com.kidspire.model;
  */
 public class BabysitterModel {
 	
+	// Unique identifier for the babysitter
 	private int babysitterId;
+
+	// Name of the babysitter
 	private String name;
+
+	// Age of the babysitter
 	private short age;
+
+	// Experience of the babysitter 
 	private String experience;
+
+	// Email address of the babysitter
 	private String email;
+
+	// Contact number (preferably validated to a specific format, e.g., starts with 98 and 10 digits long)
 	private String contactNumber;
+
+	// Status indicating availability
 	private String status;
 	
 	
@@ -27,15 +40,16 @@ public class BabysitterModel {
 
 	
 	/**
-     * Parameterized constructor to initialize a BabysitterModel object with all attributes.
+     * Constructor with all attributes including ID.
+     * Used when all babysitter data is known, e.g., retrieved from a database.
      * 
      * @param babysitterId Unique ID of the babysitter
-     * @param name  name of the babysitter
+     * @param name Name of the babysitter
      * @param age Age of the babysitter
-     * @param contactNumber Contact number of the babysitter
-     * @param email Email address of the babysitter
-     * @param experience Experience details of the babysitter
-     * @param status Current status of the babysitter i.e. availability check
+     * @param experience Experience details
+     * @param email Email address
+     * @param contactNumber Contact number
+     * @param status Availability status
      */
 	public BabysitterModel(int babysitterId, String name, short age, String experience, String email,
 			String contactNumber, String status) {
@@ -50,14 +64,15 @@ public class BabysitterModel {
 	}
 	
 	/**
-     * Parameterized constructor to initialize a BabysitterModel object with all attributes except id.
+     * Constructor without babysitter ID.
+     * Useful when creating a new babysitter record before the ID is assigned.
      * 
-     * @param name  name of the babysitter
+     * @param name Name of the babysitter
      * @param age Age of the babysitter
-     * @param contactNumber Contact number of the babysitter
-     * @param email Email address of the babysitter
-     * @param experience Experience details of the babysitter
-     * @param status Current status of the babysitter i.e. availability check
+     * @param experience Experience details
+     * @param email Email address
+     * @param contactNumber Contact number
+     * @param status Availability status
      */
 	public BabysitterModel(String name, short age, String experience, String email, String contactNumber,
 			String status) {
@@ -70,7 +85,12 @@ public class BabysitterModel {
 		this.status = status;
 	}
 	
-	
+	/**
+     * Minimal constructor used for displaying only essential details.
+     * 
+     * @param name Name of the babysitter
+     * @param experience Experience details
+     */
 
 	public BabysitterModel(String name, String experience) {
 		super();

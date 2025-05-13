@@ -1,139 +1,140 @@
 @charset "UTF-8";
-*{
+
+* {
 	font-family: "Noto Sans", sans-serif;
 }
+
 body {
-    width: 100vw;
-    overflow-y: auto;
-    background-color: rgb(234, 235, 232);
-    min-height: 105vh; 
-    margin: 0; 
+	width: 100vw;
+	overflow-y: auto;
+	background-color: rgb(234, 235, 232);
+	min-height: 105vh;
+	margin: 0;
 }
+
 .profile-container {
-    position: relative;
-    width: 100%;
-    max-width: 85rem; 
-    margin: 0 auto;
-    margin-top: 1.053rem; 
-    
+	position: relative;
+	width: 100%;
+	max-width: 85rem;
+	margin: 0 auto;
+	margin-top: 1.053rem;
 }
 
 .cover-image {
-    width: 100%;
-    height: 10.526rem; 
-    background: linear-gradient(90deg, rgba(227, 252, 246, 0.5), rgba(104, 135, 128, 0.5), rgba(242, 235, 247, 0.5));
-    border-radius: 0.526rem; 
+	width: 100%;
+	height: 10.526rem;
+	background: linear-gradient(90deg, rgba(227, 252, 246, 0.5),
+		rgba(104, 135, 128, 0.5), rgba(242, 235, 247, 0.5));
+	border-radius: 0.526rem;
 }
 
 .profile-info {
-    display: flex;
-    align-items: flex-end;
-    position: relative;
-    margin-top: -3.684rem; 
-    padding: 0 1.053rem; 
-    
+	display: flex;
+	align-items: flex-end;
+	position: relative;
+	margin-top: -3.684rem;
+	padding: 0 1.053rem;
 }
 
 .profile-picture {
-    width: 7.895rem;
-    height: 7.895rem; 
-    border-radius: 50%;
-    border: 0.263rem solid white;
-    background-color: #f0f0f0;
+	width: 7.895rem;
+	height: 7.895rem;
+	border-radius: 50%;
+	border: 0.263rem solid white;
+	background-color: #f0f0f0;
 }
 
 .profile-details {
-    margin-left: 1.053rem; 
-    color: #333;
-    
+	margin-left: 1.053rem;
+	color: #333;
 }
 
 .profile-details h1 {
-    font-size: 1.474rem; 
-    margin: 0;
-    font-weight: bold;
+	font-size: 1.474rem;
+	margin: 0;
+	font-weight: bold;
 }
 
 .profile-details p {
-    font-size: 0.842rem; 
-    color: #666;
-    margin: 0.263rem 0;
+	font-size: 0.842rem;
+	color: #666;
+	margin: 0.263rem 0;
 }
 
 .view-profile-btn {
-    position: absolute;
-    right: 1.053rem; 
-    top: 1.053rem;
-    padding: 0.526rem 1.053rem; 
-    background-color: white;
-    border: 0.053rem solid #ccc; 
-    border-radius: 1.053rem; 
-    cursor: pointer;
-    font-size: 0.737rem; 
-    font-weight: 500;
-    transition: background-color 0.3s;
+	position: absolute;
+	right: 1.053rem;
+	top: 1.053rem;
+	padding: 0.526rem 1.053rem;
+	background-color: white;
+	border: 0.053rem solid #ccc;
+	border-radius: 1.053rem;
+	cursor: pointer;
+	font-size: 0.737rem;
+	font-weight: 500;
+	transition: background-color 0.3s;
 }
 
 .view-profile-btn:hover {
-    background-color: #f0f0f0;
+	background-color: #f0f0f0;
 }
 
 .details-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2.1rem; 
-    gap: 1.053rem; 
-    height:29.3rem;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2.1rem;
+	gap: 1.053rem;
+	height: 29.3rem;
 }
 
 .change-section {
-    flex: 1;
-    background-color: #f9f9f9;
-    padding: 1.053rem; 
-    border-radius: 0.526rem; 
-    box-shadow: 0 0.105rem 0.526rem rgba(0, 0, 0, 0.1); 
-    line-height:2rem;
+	flex: 1;
+	background-color: #f9f9f9;
+	padding: 1.053rem;
+	border-radius: 0.526rem;
+	box-shadow: 0 0.105rem 0.526rem rgba(0, 0, 0, 0.1);
+	line-height: 2rem;
 }
 
 .change-section h2 {
-    font-size: 1.263rem; 
-    color: #333;
+	font-size: 1.263rem;
+	color: #333;
 }
 
 .change-section label {
-    display: block;
-    font-size: 0.842rem; 
-    color: #555;
+	display: block;
+	font-size: 0.842rem;
+	color: #555;
 }
 
 .change-section input {
-    width: 75%;
-    padding: 0.421rem;  
-    border: 0.053rem solid #ccc; 
-    border-radius: 0.263rem; 
-    font-size: 0.842rem; 
+	width: 75%;
+	padding: 0.421rem;
+	border: 0.053rem solid #ccc;
+	border-radius: 0.263rem;
+	font-size: 0.842rem;
 }
 
 .save-btn {
-    padding: 0.526rem 1.053rem; 
-    background-color:black;
-    color: white;
-    border: none;
-    border-radius: 0.263rem;
-    cursor: pointer;
-    font-size: 0.842rem; 
-    transition: background-color 0.3s;
-    display:block;
-    width:8rem;
-    margin-top:1rem;
+	padding: 0.526rem 1.053rem;
+	background-color: black;
+	color: white;
+	border: none;
+	border-radius: 0.263rem;
+	cursor: pointer;
+	font-size: 0.842rem;
+	transition: background-color 0.3s;
+	display: block;
+	width: 8rem;
+	margin-top: 1rem;
 }
 
 .save-btn:hover {
-    background-color:red;
+	background-color: red;
 }
-.errorMessage{
-	font-size:.6rem;
-	color:red;
-    width: 13rem; 
-    
+
+.errorMessage {
+	font-size: .6rem;
+	color: red;
+	width: 13rem;
 }

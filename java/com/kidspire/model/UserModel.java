@@ -126,7 +126,16 @@ public class UserModel {
 		this.password = password;
 	}
 	
-	
+	/**
+	 * Parameterized constructor to initialize a UserModel object with user details.
+	 * This constructor is used in updating user profile
+	 * 
+	 * @param userName The username of the user, typically a unique identifier.
+	 * @param firstName The first name of the user.
+	 * @param lastName The last name of the user.
+	 * @param contactNumber The contact number of the user (e.g., phone number).
+	 * @param email The email address of the user, used for communication or login.
+	 */
     public UserModel(String userName, String firstName, String lastName, String contactNumber, String email) {
 		super();
 		this.userName = userName;

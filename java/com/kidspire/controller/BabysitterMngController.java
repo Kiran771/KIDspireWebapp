@@ -17,10 +17,13 @@ import com.kidspire.service.BabysitterManagementService;
 
 /**
  * @author kiransaud 23048603
- * BabysitterMngController handles requests for the babysitter management page.
- * It forwards both GET and POST requests to "babysitterManagement.jsp".
- * Mapped to "/babysitterMngController".
+ * BabysitterMngController handles the management of babysitter records, including:
+ * Adding a new babysitter
+ * Editing an existing babysitter
+ * Deleting a babysitter
+ * Depending on the action parameter from the request, it directs the user to the proper form or performs the requested action.
  * 
+ * Mapped to "/babysitterMngController".
  */
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/babysitterMngController" })
@@ -35,6 +38,11 @@ public class BabysitterMngController extends HttpServlet {
         babysitterService = new BabysitterManagementService();
         
     }
+    /**
+     * Handles GET requests to determine whether the user is editing or adding a babysitter.
+     * If "action=edit", fetches the babysitter by ID and pre-fills the form.
+     * If no action, loads an empty form for adding a new babysitter.
+     */
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
@@ -63,7 +71,11 @@ public class BabysitterMngController extends HttpServlet {
 		}
 		
 	}
-
+	/**
+	 * Handles POST requests for add, edit, or delete actions.
+	 * Validates input using `validationBabysitterDetails`
+	 * Calls add, update, or delete methods accordingly
+	 */
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
@@ -71,7 +83,7 @@ public class BabysitterMngController extends HttpServlet {
             deleteBabysitter(request, response);
             return;
         }
-		boolean isValid = validationBabysitterDetails(request);
+		boolean isValid = validateBabysitterDetails(request);
 		if(!isValid) {
 			handleError(request,response,"Correct the highleted error.");
 			return;
@@ -85,7 +97,14 @@ public class BabysitterMngController extends HttpServlet {
             addBabysitter(request, response);
         }
 	}
-	private boolean validationBabysitterDetails(HttpServletRequest request) {
+	/**
+	 * Validates the babysitter details provided in the request.
+	 * Performs null/empty checks and format validations using ValidationUtil.
+	 *
+	 * @param request the HttpServletRequest containing form data
+	 * @return true if all fields are valid, false otherwise
+	 */
+	private boolean validateBabysitterDetails(HttpServletRequest request) {
 		boolean isValid=true;
 	
 		String name=request.getParameter("name");
@@ -146,6 +165,10 @@ public class BabysitterMngController extends HttpServlet {
 		
 		
 	}
+	/**
+	 * Adds a new babysitter using data from the request.
+	 * Redirects to adminDashboard upon success or shows error on failure.
+	 */
 	private void addBabysitter(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 		
@@ -165,6 +188,10 @@ public class BabysitterMngController extends HttpServlet {
         }	
 
 	}
+	/**
+	 * Updates an existing babysitter's information based on form data.
+	 * If the babysitter ID is invalid or not found, an error is shown.
+	 */
 	private void updateBabysitter(HttpServletRequest request,
 			HttpServletResponse response)throws ServletException, IOException{
 		String babysitterId = request.getParameter("babysitterId");
@@ -197,6 +224,10 @@ public class BabysitterMngController extends HttpServlet {
 		}
 	    
 	}
+	/**
+	 * Deletes a babysitter using the given babysitterId from the request.
+	 * Redirects to adminDashboard after deletion.
+	 */
 	private void deleteBabysitter(HttpServletRequest request,
 			HttpServletResponse response)throws ServletException, IOException{
 		
@@ -216,7 +247,14 @@ public class BabysitterMngController extends HttpServlet {
 		
 		
 	}
-	
+	/**
+	 * Handles form submission errors by setting entered values back in the request
+	 * and forwarding to babysitterManagement.jsp for user correction.
+	 *
+	 * @param request the HttpServletRequest containing the erroneous form data
+	 * @param response the HttpServletResponse
+	 * @param message optional error message (currently unused in output)
+	 */
 	private void handleError(HttpServletRequest request, HttpServletResponse response, String message)
 			throws ServletException, IOException {
 		

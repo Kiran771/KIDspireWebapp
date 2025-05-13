@@ -19,8 +19,17 @@ import com.kidspire.util.ValidationUtil;
 
 /**
  * @author kiransaud 23048603
- * UserProfileController handles loading the user profile page
- * It forwards GET and POST requests to the profile view
+ * 
+ * UserProfileController is a servlet that handles GET and POST requests related to the user's profile.
+ * 
+ * On a GET request, it retrieves the user's profile data from the database using the session's username 
+ * and forwards it to the user profile JSP page for viewing.
+ * 
+ * On a POST request, it validates submitted profile information (first name, last name, contact, email).
+ * If valid, it updates the user's data in the database; otherwise, it redisplays the form with error messages.
+ * 
+ * This servlet ensures that only logged-in users can access or update their profiles.
+ * It uses ProfileService for database interactions and ValidationUtil for input validation.
  * 
  */
 
@@ -29,14 +38,25 @@ public class UserProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final ProfileService profileService;
        
-    
+	/**
+	 * Constructor initializes the ProfileService used for accessing user data.
+	 */
     public UserProfileController() {
     	
         super();
         this.profileService=new ProfileService();
         
     }
-
+    
+    /**
+	 * Handles GET requests to display the current user's profile page.
+	 * Validates session, retrieves user data by username, and forwards to the JSP view.
+	 *
+	 * @param request  the HttpServletRequest object
+	 * @param response the HttpServletResponse object
+	 * @throws ServletException if a servlet-specific error occurs
+	 * @throws IOException      if an input or output error occurs
+	 */
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
@@ -65,8 +85,17 @@ public class UserProfileController extends HttpServlet {
 		
 	}
 	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * Handles POST requests for updating the user's profile information.
+	 * Validates user input, updates the user profile in the database if valid,
+	 * or redisplays the form with validation error messages.
+	 *
+	 * @param request  the HttpServletRequest object containing form inputs
+	 * @param response the HttpServletResponse object
+	 * @throws ServletException if a servlet-specific error occurs
+	 * @throws IOException      if an input or output error occurs
+	 */
+	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("Username") == null) {
         	request.getSession(true);
@@ -99,8 +128,18 @@ public class UserProfileController extends HttpServlet {
 				
 			}
 	}
+	 
+	 
+	 /**
+	  * Validates the user's profile input fields (first name, last name, email, contact).
+	  * Sets error messages in request attributes for any invalid field.
+	  *
+	  * @param request the HttpServletRequest object containing form data
+	  * @return true if all inputs are valid; false if any validation fails
+	  * @throws ServletException if a servlet-specific error occurs
+	  */
 	
-	private boolean validateUserDetails(HttpServletRequest request) throws ServletException{
+	  private boolean validateUserDetails(HttpServletRequest request) throws ServletException{
 		boolean isValid=true;
 		String firstName=request.getParameter("firstName");
 		String lastName=request.getParameter("lastName");
@@ -125,6 +164,16 @@ public class UserProfileController extends HttpServlet {
 		}
 		return isValid;
 	}
+	  
+	/**
+	* Forwards the request back to the userProfile.jsp page with the previously entered data
+	* and any validation error messages if validation fails.
+	*
+	* @param request  the HttpServletRequest object containing user input
+	* @param response the HttpServletResponse object
+	* @throws ServletException if a servlet-specific error occurs
+	* @throws IOException      if an input or output error occurs
+	*/
 	
 	private void handleError(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
