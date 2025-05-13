@@ -263,6 +263,19 @@ public class BabysitterMngController extends HttpServlet {
 		 request.setAttribute("email", request.getParameter("email"));
 		 request.setAttribute("experience", request.getParameter("experience"));
 		 request.setAttribute("contact", request.getParameter("contact"));
+		 String action = request.getParameter("action");
+		    request.setAttribute("action", action); 
+		    if ("edit".equals(action)) {
+		        request.setAttribute("babysitterId", request.getParameter("babysitterId"));
+		        
+		        try {
+		            BabysitterModel babysitter = babysitterService.getBabysitterById(request.getParameter("babysitterId"));
+		            request.setAttribute("babysitter", babysitter);
+		        } catch (SQLException e) {
+		            System.err.println("Error reloading babysitter in handleError: " + e.getMessage());
+		            e.printStackTrace();
+		        }
+		    }
 		 
 		 
 		 request.getRequestDispatcher("WEB-INF/pages/Admin/babysitterManagement.jsp").forward(request, response);

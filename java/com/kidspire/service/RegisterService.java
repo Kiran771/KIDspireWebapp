@@ -216,7 +216,6 @@ public class RegisterService {
 			ResultSet result = stmt.executeQuery();
 			if (result.next()) {
                 int count = result.getInt("recent_users");
-                System.out.println("Recent users (last 20 minutes): " + count);
                 return count;
             }
 		}catch (SQLException e) {
