@@ -32,6 +32,7 @@ public class BabysitterManagementService {
 			
 			System.err.println("Database connection error:"+ ex.getMessage());
 			ex.printStackTrace();
+			throw new IllegalStateException("Failed to initialize database connection", ex);
 		}
 		
 	}
@@ -140,7 +141,10 @@ public class BabysitterManagementService {
      */
 	
 	public List<BabysitterModel> getAllBabysitters() throws SQLException{
-		
+		if (dbConn == null) {
+	        System.err.println("Database connection is not available");
+	        throw new SQLException("Database connection is not initialized");
+	    }
 		String select="SELECT BabysitterId,Name,Age,Experience,Email,ContactNumber,Status FROM Babysitter";
 		List<BabysitterModel> babysitters = new ArrayList<>();
 		try(PreparedStatement getStmt=dbConn.prepareStatement(select)){
@@ -170,6 +174,10 @@ public class BabysitterManagementService {
      * @throws SQLException if an SQL error occurs during the query process.
      */
 	public  BabysitterModel getBabysitterById(String babysitterId) throws SQLException {
+		if (dbConn == null) {
+	        System.err.println("Database connection is not available");
+	        throw new SQLException("Database connection is not initialized");
+	    }
 		int id = Integer.parseInt(babysitterId);
 		String getById="SELECT BabysitterId, Name,Age,Experience,Email,ContactNumber,Status FROM Babysitter "
 				+ "WHERE BabysitterId=?";
@@ -200,6 +208,10 @@ public class BabysitterManagementService {
      * @throws SQLException if an SQL error occurs during the query process.
      */
 	public int getAvailableBabysitters() throws SQLException{
+		if (dbConn == null) {
+	        System.err.println("Database connection is not available");
+	        throw new SQLException("Database connection is not initialized");
+	    }
 		String availableBabysitters="SELECT COUNT(*) AS available_babysitters FROM Babysitter WHERE status=?";
 		try(PreparedStatement stmt=dbConn.prepareStatement(availableBabysitters)){
 			stmt.setString(1,"available");
@@ -222,6 +234,10 @@ public class BabysitterManagementService {
      * @throws SQLException if an SQL error occurs during the query process.
      */
 	public int getUnavailabelBabysitters()throws SQLException{
+		if (dbConn == null) {
+	        System.err.println("Database connection is not available");
+	        throw new SQLException("Database connection is not initialized");
+	    }
 		String unavailableBabysitters="SELECT COUNT(*) AS unavailable_babysitters FROM Babysitter WHERE status=?";
 		try(PreparedStatement stmt=dbConn.prepareStatement(unavailableBabysitters)){
 			stmt.setString(1,"unavailable");
@@ -245,6 +261,11 @@ public class BabysitterManagementService {
      * @throws SQLException if an SQL error occurs during the query process.
      */
 	public List<BabysitterModel> getBabysitters() throws SQLException {
+		if (dbConn == null) {
+	        System.err.println("Database connection is not available");
+	        throw new SQLException("Database connection is not initialized");
+	    }
+		
 		String getBabysitter="SELECT BabysitterId,Name,Experience FROM Babysitter ORDER BY BabysitterId";
 		List<BabysitterModel> babysitters = new ArrayList<>();
 		try (PreparedStatement getStmt = dbConn.prepareStatement(getBabysitter)) {
