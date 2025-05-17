@@ -16,9 +16,7 @@
 			KIDspire<span style='color: pink'>.</span>
 		</h1>
 		<div class="search">
-			<form
-				action="${pageContext.request.contextPath}/babysitterController"
-				method="post">
+			<form action="${pageContext.request.contextPath}/babysitterController" method="post">
 				<input type="search" name="searchName" placeholder="Search..."
 					value="${param.searchName}">
 				<button type="submit" class="search-btn">

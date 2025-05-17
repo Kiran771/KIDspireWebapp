@@ -305,7 +305,6 @@ public class BabysitterManagementService {
 	                   
 	                );
 	                int babysitterId = result.getInt("BabysitterId");
-	                System.out.println("Search Result - BabysitterId: " + babysitterId + ", Name: " + result.getString("Name"));
 	                babysitter.setBabysitterId(babysitterId);
 	                babysitters.add(babysitter);
 	                
