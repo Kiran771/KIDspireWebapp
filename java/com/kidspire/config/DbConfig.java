@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 /*
- * this class build a connection with database  
- * ? is used for retrieving data
+ * @author Kiransaud
+ * This class build a connection with KIDspire database  
+ * 
  * */
 public class DbConfig{
 	private static final String DB_NAME="KIDspire";
@@ -13,6 +14,13 @@ public class DbConfig{
 	private static final String USERNAME="root";
 	private static final String PASSWORD= "";
 	
+	/**
+     * Establishes a connection to the KIDspire database.
+     *
+     * @return Connection object
+     * @throws SQLException if a database access error occurs
+     * @throws ClassNotFoundException if the JDBC driver is not found
+     */
 	public static Connection getDbConnection() throws SQLException , ClassNotFoundException{
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
